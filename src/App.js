@@ -1,12 +1,13 @@
 import React from 'react';
-import NavigationRoutes from './routes/Index'
+import { BrowserRouter } from 'react-router-dom';
+import NavigationRoutes from './routes'
 import './styles/App.css';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <NavigationRoutes />
-    </>
+    </BrowserRouter>
   );
 }
 
