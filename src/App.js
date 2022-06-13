@@ -1,11 +1,11 @@
 import React from 'react';
-import Routes from './routes'
+import NavigationRoutes from './routes'
 import './styles/App.css';
 
 function App() {
   return (
     <>
-      <Routes />
+      <NavigationRoutes />
     </>
   );
 }
