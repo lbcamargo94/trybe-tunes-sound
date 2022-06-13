@@ -1,25 +1,26 @@
-// const USER_KEY = 'user';
+import { useUpdateContext } from '../utils/provider';
 
-// const readUser = () => JSON.parse(localStorage.getItem(USER_KEY));
-// const saveUser = (user) => localStorage.setItem(USER_KEY, JSON.stringify(user));
+const { data, setData } = useUpdateContext();
 
-// export const getUser = () => new Promise(() => {
-//   let user = readUser();
-//   if (user === null) {
-//     user = {};
-//   }
-// });
+// const emptyUser = {
+//   id: user.id,
+//   name: user.name,
+//   email: user.email,
+//   image: user.image,
+//   description: user.description,
+//   favorite: [],
+// };
 
-// export const createUser = (user) => new Promise(() => {
-//   const emptyUser = {
-//     name: '',
-//     email: '',
-//     image: '',
-//     description: '',
-//   };
-//   saveUser({ ...emptyUser, ...user });
-// });
+const createUser = async (user) => {
+  try {
+    let addNewUser = { data: [...data.users, user] };
 
-// export const updateUser = (updatedUser) => new Promise(() => {
-//   saveUser({ ...updatedUser });
-// });
+    return await setData(addNewUser);
+  } catch (error) {
+    throw new error;
+  }
+};
+
+export default {
+  createUser,
+};
