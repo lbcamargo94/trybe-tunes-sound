@@ -3,7 +3,9 @@ import React from 'react'
 export default function Registration() {
   return (
     <div>
-      Registration
+      <p>
+        Registration
+      </p>
     </div>
-  )
+  );
 }
