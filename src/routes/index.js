@@ -8,12 +8,12 @@ export default function NavigationRoutes() {
   return (
     <Routes>
       <Route exact path="/" element={ <Home /> } />
-      <Route exact="/login" element={ <Login /> } />
-      <Route exact="/registration" element={ <Registration /> } />
+      <Route path="/login" element={ <Login /> } />
+      <Route path="/register" element={ <Registration /> } />
       <Route path="/search" element={ "Search" } />
       <Route path="/album/:id" element={ "Album" } />
       <Route path="/favorites" element={ "Favorites" } />
-      <Route exact path="/profile" element={ "Profile" } />
+      <Route path="/profile" element={ "Profile" } />
       <Route path="/profile/edit" element={ "ProfileEdit" } />
       <Route path="*" element={ "NotFound" } />
     </Routes>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Button,
   Checkbox,
@@ -10,12 +11,13 @@ import {
   Link,
   Stack,
   Image,
-  // Box,
   Center,
 } from '@chakra-ui/react';
-import ImgTunes from '../assets/images/pngwing.com.png'
+import ImgTunes from '../assets/images/pngwing.com.png';
 
 export default function FormLogin() {
+  let navigate = useNavigate();
+
   return (
     <Stack minH={'100vh'} justify="center" flex={ 1 } align="center">
       <Center boxSize={'400px'} m={'0 auto'}>
@@ -45,8 +47,21 @@ export default function FormLogin() {
               <Checkbox>Remember me</Checkbox>
               <Link color={'blue.500'}>Forgot password?</Link>
             </Stack>
-            <Button colorScheme={'blue'} variant={'solid'}>
+            <Button
+              colorScheme={'blue'}
+              variant={'solid'}
+              onClick={() => navigate("/register")}
+              disabled={''}
+            >
               Sign in
+            </Button>
+            <Button
+              colorScheme={'green'}
+              variant={'solid'}
+              onClick={() => navigate("/register")}
+              disabled={''}
+            >
+              Register
             </Button>
           </Stack>
         </Stack>
