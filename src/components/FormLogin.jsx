@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+// chakra-ui imports
 import {
   Button,
   Checkbox,
@@ -10,27 +11,19 @@ import {
   Input,
   Link,
   Stack,
-  Image,
-  Center,
 } from '@chakra-ui/react';
-import ImgTunes from '../assets/images/pngwing.com.png';
+// components imports
+import Logo from '../components/Logo';
 
 export default function FormLogin() {
   let navigate = useNavigate();
 
   return (
-    <Stack minH={'100vh'} justify="center" flex={ 1 } align="center">
-      <Center boxSize={'400px'} m={'0 auto'}>
-        <Image
-          alt={'Login Image'}
-          objectFit={'cover'}
-          src={ ImgTunes }
-          w={'100%'} h={'100%'}
-        />
-      </Center>
-      <Flex p={8} align={'center'} justify={'center'}>
-        <Stack spacing={4} w={'full'} maxW={'md'}>
-          <Heading fontSize={'2xl'}>Sign in to your account</Heading>
+    <Stack minH='100vh' justify="center" flex='1' align="center">
+      <Logo />
+      <Flex p='8' align='center' justify='center'>
+        <Stack spacing='4' w='full' maxW='md'>
+          <Heading fontSize='2xl'>Sign in to your account</Heading>
           <FormControl id="email">
             <FormLabel>Email address</FormLabel>
             <Input type="email" />
@@ -39,27 +32,27 @@ export default function FormLogin() {
             <FormLabel>Password</FormLabel>
             <Input type="password" />
           </FormControl>
-          <Stack spacing={6}>
+          <Stack spacing='6'>
             <Stack
               direction={{ base: 'column', sm: 'row' }}
-              align={'start'}
-              justify={'space-between'}>
+              align='start'
+              justify='space-between'>
               <Checkbox>Remember me</Checkbox>
-              <Link color={'blue.500'}>Forgot password?</Link>
+              <Link color='blue.500'>Forgot password?</Link>
             </Stack>
             <Button
-              colorScheme={'blue'}
-              variant={'solid'}
+              m='1rem' w='12.5rem' h='2.5rem' color='#f0f8ff' bg='#01a101'
+              variant='solid'
               onClick={() => navigate("/register")}
-              disabled={''}
+              disabled=''
             >
               Sign in
             </Button>
             <Button
-              colorScheme={'green'}
-              variant={'solid'}
+              m='1rem' w='12.5rem' h='2.5rem' color='#f0f8ff' bg='#01a101'
+              variant='solid'
               onClick={() => navigate("/register")}
-              disabled={''}
+              disabled=''
             >
               Register
             </Button>
