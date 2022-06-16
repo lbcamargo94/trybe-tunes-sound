@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+// import chakra ui
 import {
   Box,
   Button,
@@ -7,24 +8,23 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
+// import image
 import HeadPhonePink from '../assets/images/head-phone-01.jpg'
 import HeadPhoneBlue from '../assets/images/head-phone-02.jpg'
 import HeadPhoneYellow from '../assets/images/head-phone-03.jpg'
 import HeadPhoneGreen from '../assets/images/head-phone-04.jpg'
+// import components
+import Logo from '../components/Logo';
 
 export default function Home() {
   let navigate = useNavigate();
 
   return (
     <Container display='flex' flexDir='column' alignItems='center' justifyContent='center'
-      w='100vw' h='100vh' overflow='hidden' p='1rem'>
+      w='100vw' h='100vh' p='1rem'>
+      <Logo />
       <Box display='flex' alignItems='center' justifyContent='space-between'
-        maxW='100%' borderRadius='1rem' m='1rem'>
-        <Text className='fontIntroOne' color='#01a101'>Trybe</Text>
-        <Text className='fontIntroTwo' color='#f0f8ff'>Tunes</Text>
-      </Box>
-      <Box display='flex' alignItems='center' justifyContent='space-between'
-        maxW='100%' borderRadius='1rem' m='1rem' mt='5rem'>
+        w='100%' h='100%' borderRadius='1rem' m='1rem'>
         <Image src={HeadPhonePink} alt='HeadPhonePink' maxW='25%'/>
         <Image src={HeadPhoneYellow} alt='HeadPhonePink' maxW='25%'/>
         <Image src={HeadPhoneBlue} alt='HeadPhonePink' maxW='25%'/>
