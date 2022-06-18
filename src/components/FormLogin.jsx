@@ -18,7 +18,7 @@ export default function FormLogin() {
   let navigate = useNavigate();
 
   return (
-    <Stack minH='100%' w='100%' justify="center" flex='1' align="center">
+    <Stack w='100%' h='100%' justifyContent="center" flex='1' alignItems="center" display='flex'>
       <Flex p='8' align='center' justify='center'>
         <Stack spacing='4' w='full' maxW='md'>
           <Heading fontSize='2xl'>Sign in to your account</Heading>

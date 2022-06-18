@@ -18,8 +18,8 @@ import Logo from '../components/Logo'
 
 export default function Login() {
   return (
-    <Flex direction='column' alignItems='center' justify='center' p='1rem' m='0 auto' w='360px' h='100%'
-      maxW='640px'>
+    <Flex direction='column' alignItems='center' justify='center' p='1rem' m='0 auto'
+      w='360px' maxW='640px'>
       <Logo />
       <FormLogin />
     </Flex>

@@ -21,10 +21,10 @@ export default function Home() {
 
   return (
     <Container display='flex' flexDir='column' alignItems='center' justifyContent='center'
-      w='100vw' h='100vh' p='1rem'>
+      w='100%' h='100%' p='1rem'>
       <Logo />
       <Box display='flex' alignItems='center' justifyContent='space-between'
-        w='100%' h='100%' borderRadius='1rem' m='1rem'>
+        borderRadius='1rem' m='1rem'>
         <Image src={HeadPhonePink} alt='HeadPhonePink' maxW='25%'/>
         <Image src={HeadPhoneYellow} alt='HeadPhonePink' maxW='25%'/>
         <Image src={HeadPhoneBlue} alt='HeadPhonePink' maxW='25%'/>
