@@ -36,8 +36,7 @@ export default function Home() {
           TrybeTunes, an application capable of playing songs from the most varied bands and artists, creating a list of favorite songs and editing the profile of the user logged in.
         </Text>
       </Box>
-      <Box display='flex' alignItems='center' justifyContent='space-between'
-        maxW='100%' borderRadius='1rem' m='1rem' mt='3rem'>
+      <Box display='flex' alignItems='center' justfy='center' m='0 auto'>
         <Button
           className='txtIntroduction'
           m='1rem' w='7.5rem' h='2.5rem' color='#f0f8ff' bg='#01a101'

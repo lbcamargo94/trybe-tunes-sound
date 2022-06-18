@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 // chakra-ui imports
 import {
+  Box,
   Button,
   Checkbox,
   Flex,
@@ -12,15 +13,12 @@ import {
   Link,
   Stack,
 } from '@chakra-ui/react';
-// components imports
-import Logo from '../components/Logo';
 
 export default function FormLogin() {
   let navigate = useNavigate();
 
   return (
-    <Stack minH='100vh' justify="center" flex='1' align="center">
-      <Logo />
+    <Stack minH='100%' w='100%' justify="center" flex='1' align="center">
       <Flex p='8' align='center' justify='center'>
         <Stack spacing='4' w='full' maxW='md'>
           <Heading fontSize='2xl'>Sign in to your account</Heading>
@@ -40,22 +38,24 @@ export default function FormLogin() {
               <Checkbox>Remember me</Checkbox>
               <Link color='blue.500'>Forgot password?</Link>
             </Stack>
-            <Button
-              m='1rem' w='12.5rem' h='2.5rem' color='#f0f8ff' bg='#01a101'
-              variant='solid'
-              onClick={() => navigate("/register")}
-              disabled=''
-            >
-              Sign in
-            </Button>
-            <Button
-              m='1rem' w='12.5rem' h='2.5rem' color='#f0f8ff' bg='#01a101'
-              variant='solid'
-              onClick={() => navigate("/register")}
-              disabled=''
-            >
-              Register
-            </Button>
+            <Box display='flex' direction='column' alignItems='center' justify='center'>
+              <Button
+                m='1rem' w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
+                variant='solid'
+                onClick={() => navigate("/register")}
+                disabled=''
+              >
+                Sign in
+              </Button>
+              <Button
+                m='1rem' w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
+                variant='solid'
+                onClick={() => navigate("/register")}
+                disabled=''
+              >
+                Register
+              </Button>
+            </Box>
           </Stack>
         </Stack>
       </Flex>
