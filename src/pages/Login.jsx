@@ -1,17 +1,6 @@
 import React from 'react';
 // chakra-ui imports
-import {
-  // Box,
-  // Button,
-  // Checkbox,
-  Flex,
-  // FormControl,
-  // FormLabel,
-  // Heading,
-  // Input,
-  // Link,
-  // Stack,
-} from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 // components imports
 import FormLogin from '../components/FormLogin';
 import Logo from '../components/Logo'
