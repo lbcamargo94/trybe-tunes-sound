@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // chakra-ui imports
 import {
@@ -13,7 +13,6 @@ import {
   Link,
   Stack,
 } from '@chakra-ui/react';
-import { useState } from 'react';
 
 export default function FormLogin() {
   const [loginEmail,setLoginEmail] = useState(false);
