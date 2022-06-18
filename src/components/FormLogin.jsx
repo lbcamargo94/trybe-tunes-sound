@@ -24,25 +24,19 @@ export default function FormLogin() {
 
   useEffect(() => {
     const validLogin = () => {
-      console.log(`State Pass: ${loginPass}`);
-      console.log(`State Email: ${loginEmail}`);
       return loginEmail && loginPass;
     }
-    console.log(`validLogin: ${validLogin()}`);
     setLoginDisabled(validLogin);
   }, [loginEmail, loginPass]);
 
   const passwordValidation = (pass) => {
-    console.log(`passwordValidation: ${pass}`);
     const biggerThen = 5;
     pass.length > biggerThen ? setLoginPass(true) : setLoginPass(false);
   };
 
   const emailValidation = (email) => {
-    // console.log(`emailValidation: ${email}`);
     const regex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const isValid = regex.test(email);
-    console.log(`emailValidation: ${isValid}`);
     setLoginEmail(isValid);
   };
 
@@ -71,7 +65,7 @@ export default function FormLogin() {
               <Button
                 m='1rem' w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
                 variant='solid'
-                onClick={() => navigate("/register")}
+                onClick={() => navigate("/")}
                 disabled={!loginDisabled}            >
                 Sign in
               </Button>
@@ -80,7 +74,7 @@ export default function FormLogin() {
                 variant='solid'
                 onClick={() => navigate("/register")}
               >
-                Register
+                Sign Up
               </Button>
             </Box>
           </Stack>

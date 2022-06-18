@@ -42,14 +42,14 @@ export default function Home() {
           m='1rem' w='7.5rem' h='2.5rem' color='#f0f8ff' bg='#01a101'
           onClick={() => navigate("/login")}
         >
-          Login
+          Sign In
         </Button>
         <Button 
           className='txtIntroduction'
           m='1rem' w='7.5rem' h='2.5rem' color='#f0f8ff' bg='#01a101'
           onClick={() => navigate("/register")}
         >
-          Register
+          Sign Up
         </Button>
       </Box>
     </Container>
