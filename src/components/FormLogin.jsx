@@ -4,13 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
-  Checkbox,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
-  Link,
   Stack,
 } from '@chakra-ui/react';
 
@@ -40,7 +38,8 @@ export default function FormLogin() {
   };
 
   return (
-    <Stack minW='360px' w='100%' h='100%' justifyContent="center" flex='1' alignItems="center" display='flex'>
+    <Stack minW='360px' w='100%' h='100%' justifyContent="center" flex='1'
+      alignItems="center" display='flex'>
       <Flex p='8' align='center' justify='center'>
         <Stack spacing='4' w='full' maxW='md'>
           <Heading fontSize='2xl'>Sign in to your account</Heading>
@@ -52,14 +51,8 @@ export default function FormLogin() {
             <FormLabel>Password</FormLabel>
             <Input type="password" onChange={(event) => passwordValidation(event.target.value) }/>
           </FormControl>
+          {/* Buttons Sign In/Sign Up */}
           <Stack spacing='6'>
-            <Stack
-              direction={{ base: 'column', sm: 'row' }}
-              align='start'
-              justify='space-between'>
-              <Checkbox>Remember me</Checkbox>
-              <Link color='blue.500'>Forgot password?</Link>
-            </Stack>
             <Box display='flex' direction='column' alignItems='center' justify='center'>
               <Button
                 m='1rem' w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
