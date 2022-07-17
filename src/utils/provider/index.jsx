@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import TunesContext from '../context';
 
 export const TunesProvider = ({ children }) => {
-  const [data, setData] = useState({
-    data: {
-      users: [],
-    } 
-  });
+  const [data, setData] = useState([]);
 
   return (
     <TunesContext.Provider value={ { data, setData } }>
