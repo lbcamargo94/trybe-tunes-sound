@@ -1,22 +1,21 @@
 import React from 'react'
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import Registration from '../pages/Registration';
 
 export default function NavigationRoutes() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" component={ "Login" } />
-        <Route path="/search" component={ "Search" } />
-        <Route path="/album/:id" component={ "Album" } />
-        <Route path="/favorites" component={ "Favorites" } />
-        <Route exact path="/profile" component={ "Profile" } />
-        <Route path="/profile/edit" component={ "ProfileEdit" } />
-        <Route path="*" component={ "NotFound" } />
-      </Routes>
-    </BrowserRouter>
-  )
+    <Routes>
+      <Route exact path="/" element={ <Home /> } />
+      <Route path="/login" element={ <Login /> } />
+      <Route path="/register" element={ <Registration /> } />
+      <Route path="/search" element={ "Search" } />
+      <Route path="/album/:id" element={ "Album" } />
+      <Route path="/favorites" element={ "Favorites" } />
+      <Route path="/profile" element={ "Profile" } />
+      <Route path="/profile/edit" element={ "ProfileEdit" } />
+      <Route path="*" element={ "NotFound" } />
+    </Routes>
+  );
 }
