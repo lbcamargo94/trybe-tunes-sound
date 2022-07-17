@@ -20,6 +20,10 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 export default function FormRegister() {
   const [showPassword, setShowPassword] = useState(false);
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   
   return (
