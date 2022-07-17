@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { useUpdateContext } from '../utils/provider';
+import { addNewUser } from '../helpers/contextHelpers';
 
 // chakra-ui imports
 import {
@@ -27,19 +27,9 @@ export default function FormRegister() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // React Context
-  const { data, setData } = useUpdateContext();
-
   // React Touter Dom useNavigate
   let navigate = useNavigate();
   
-  //Helpers functions
-  const addNewUser = (firstName, lastName, email, password) => {
-    let newUser = { firstName, lastName, email, password };
-    setData([...data, newUser]);
-    navigate('/login');
-  };
-
   return (
     <Flex p="8" minW="360px" w="100%" h="100%" justifyContent="center"
     lex="1" alignItems="center" display="flex" >
@@ -96,9 +86,9 @@ export default function FormRegister() {
             </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
-                _hover={{bg: '#01a101', color: '#f0f8ff'}}
-                bg="#ffffff80"
-                color="#01a101"
+                _hover={{bg: "#f0f8ff", color: "#01a101"}}
+                bg="#01a101"
+                color="#f0f8ff"
                 loadingText="Submitting"
                 onClick={() => addNewUser(firstName, lastName, email, password)}
                 type="submit"
