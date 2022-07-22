@@ -71,7 +71,7 @@ export default function FormLogin() {
             <Stack spacing="6">
               <Box display="flex" alignItems="center">
                 <Text fontSize='md' color="red">
-                  { `Incorrect email or password!` }
+                  { `🚨 Incorrect email or password!` }
                 </Text>
               </Box>
             </Stack>
