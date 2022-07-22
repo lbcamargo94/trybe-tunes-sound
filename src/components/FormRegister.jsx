@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { addNewUser } from '../helpers/contextHelpers';
+import { useUpdateContext } from '../utils/provider';
 
 // chakra-ui imports
 import {
@@ -19,6 +19,13 @@ import {
   Link,
 } from '@chakra-ui/react';
 
+// Import forms validation
+import {
+  emailValidation,
+  passwordValidation,
+  nameValidation,
+} from '../helpers/validationRegisterForms';
+  
 export default function FormRegister() {
   // States
   const [showPassword, setShowPassword] = useState(false);
@@ -26,10 +33,34 @@ export default function FormRegister() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [validForms, setValidForms] = useState(false);
 
   // React Touter Dom useNavigate
   let navigate = useNavigate();
-  
+
+  // Save newUser in Context
+  const { data, setData } = useUpdateContext();
+
+  const addNewUser = (
+    firstName, lastName, email, password
+    ) => {
+  let newUser = { firstName, lastName, email, password };
+    setData([...data, newUser]);
+    navigate('/login');
+  };
+
+  useEffect(() => {
+    function validationFields(firstName, password, email) {
+      let validName = nameValidation(firstName);
+      let validPassword = passwordValidation(password);
+      let validEmail = emailValidation(email);
+      let arrValidation = [validName, validPassword, validEmail]
+      console.log(arrValidation.every(elemnt => elemnt == true));
+      setValidForms(!arrValidation.every(elemnt => elemnt == true))
+    }
+    validationFields(firstName, password, email)
+  }, [firstName, password, email])
+
   return (
     <Flex p="8" minW="360px" w="100%" h="100%" justifyContent="center"
     lex="1" alignItems="center" display="flex" >
@@ -48,7 +79,9 @@ export default function FormRegister() {
                   <FormLabel>First Name</FormLabel>
                   <Input
                     type="text"
-                    onChange={({target}) => setFirstName(target.value)}
+                    onChange={
+                      ({target}) => setFirstName(target.value)
+                    }
                   />
                 </FormControl>
               </Box>
@@ -57,7 +90,10 @@ export default function FormRegister() {
                   <FormLabel>Last Name</FormLabel>
                   <Input
                     type="text"
-                    onChange={({target}) => setLastName(target.value)}
+                    defaultValue={ '' }
+                    onChange={
+                      ({target}) => setLastName(target.value)
+                    }
                   />
                 </FormControl>
               </Box>
@@ -66,7 +102,9 @@ export default function FormRegister() {
               <FormLabel>Email address</FormLabel>
               <Input
                 type="email"
-                onChange={({target}) => setEmail(target.value)}
+                onChange={
+                  ({target}) => setEmail(target.value)
+                }
               />
             </FormControl>
             <FormControl id="password" isRequired>
@@ -90,11 +128,12 @@ export default function FormRegister() {
                 bg="#01a101"
                 color="#f0f8ff"
                 loadingText="Submitting"
+                disabled={ validForms }
                 onClick={() => addNewUser(firstName, lastName, email, password)}
                 type="submit"
                 size="lg"
               >
-                Sign up
+                Register
               </Button>
             </Stack>
             <Stack pt={6}>
