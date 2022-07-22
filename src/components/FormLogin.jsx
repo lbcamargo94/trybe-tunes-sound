@@ -53,16 +53,16 @@ export default function FormLogin() {
           </FormControl>
           {/* Buttons Sign In/Sign Up */}
           <Stack spacing='6'>
-            <Box display='flex' direction='column' alignItems='center' justify='center'>
+            <Box display='flex' direction='column' alignItems='center' justify='around'>
               <Button
-                m='1rem' w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
+                w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
                 variant='solid'
                 onClick={() => navigate("/")}
                 disabled={!loginDisabled}            >
                 Sign in
               </Button>
               <Button
-                m='1rem' w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
+                ml='2' w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
                 variant='solid'
                 onClick={() => navigate("/register")}
               >
