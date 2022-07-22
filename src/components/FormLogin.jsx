@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 // chakra-ui imports
 import {
   Box,
@@ -10,32 +11,36 @@ import {
   Heading,
   Input,
   Stack,
+  Text,
 } from '@chakra-ui/react';
 
-export default function FormLogin() {
-  const [loginEmail,setLoginEmail] = useState(false);
-  const [loginPass, setLoginPass] = useState(false);
-  const [loginDisabled, setLoginDisabled] = useState(false);
+// Import forms validation
+import {
+  emailValidation,
+  passwordValidation,
+} from '../helpers/validationRegisterForms';
 
+export default function FormLogin() {
+  // States
+  const [email,setEmail] = useState('');
+  const [validEmail,setValidEmail] = useState(false);
+  const [password, setPassword] = useState('');
+  const [validPassword, setValidPassword] = useState(false);
+  const [validForms, setValidForms] = useState(false);
+
+  // React Touter Dom useNavigate
   let navigate = useNavigate();
 
   useEffect(() => {
-    const validLogin = () => {
-      return loginEmail && loginPass;
+    // Validation forms email and password fields
+    function validationFields(email, password) {
+      setValidEmail(emailValidation(email));
+      setValidPassword(passwordValidation(password));
+      validEmail && validPassword ? setValidForms(true) : setValidForms(false);
     }
-    setLoginDisabled(validLogin);
-  }, [loginEmail, loginPass]);
 
-  const passwordValidation = (pass) => {
-    const biggerThen = 5;
-    pass.length > biggerThen ? setLoginPass(true) : setLoginPass(false);
-  };
-
-  const emailValidation = (email) => {
-    const regex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-    const isValid = regex.test(email);
-    setLoginEmail(isValid);
-  };
+    validationFields(email, password);
+  }, [email, password, validEmail, validPassword])
 
   return (
     <Stack minW='360px' w='100%' h='100%' justifyContent="center" flex='1'
@@ -45,12 +50,32 @@ export default function FormLogin() {
           <Heading fontSize='2xl'>Sign in to your account</Heading>
           <FormControl id="email">
             <FormLabel>Email address</FormLabel>
-            <Input type="email" onChange={(event) => emailValidation(event.target.value)}/>
+            <Input
+              type="email"
+              onChange={
+                ({ target }) => setEmail(target.value)
+              }
+            />
           </FormControl>
           <FormControl id="password">
             <FormLabel>Password</FormLabel>
-            <Input type="password" onChange={(event) => passwordValidation(event.target.value) }/>
+            <Input
+              type="password"
+              onChange={
+                ({ target }) => setPassword(target.value)
+              }
+            />
           </FormControl>
+          {/* Alert forms error */}
+          { !validForms && 
+            <Stack spacing="6">
+              <Box display="flex" alignItems="center">
+                <Text fontSize='md' color="red">
+                  { `Incorrect email or password!` }
+                </Text>
+              </Box>
+            </Stack>
+          }
           {/* Buttons Sign In/Sign Up */}
           <Stack spacing='6'>
             <Box display='flex' direction='column' alignItems='center' justify='around'>
@@ -58,7 +83,8 @@ export default function FormLogin() {
                 w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
                 variant='solid'
                 onClick={() => navigate("/")}
-                disabled={!loginDisabled}            >
+                disabled={!validForms}
+              >
                 Sign in
               </Button>
               <Button

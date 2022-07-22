@@ -55,7 +55,6 @@ export default function FormRegister() {
       let validPassword = passwordValidation(password);
       let validEmail = emailValidation(email);
       let arrValidation = [validName, validPassword, validEmail]
-      console.log(arrValidation.every(elemnt => elemnt == true));
       setValidForms(!arrValidation.every(elemnt => elemnt == true))
     }
     validationFields(firstName, password, email)
