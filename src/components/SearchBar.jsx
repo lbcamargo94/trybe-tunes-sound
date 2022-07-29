@@ -1,40 +1,43 @@
 // React import
 import React, {
-  useEffect,
+  // useEffect,
   useState,
 } from 'react';
 
 // Chakra ui import
 import {
-  Stack,
-  Input,
   Button,
+  HStack,
+  Input,
+  Stack,
 } from '@chakra-ui/react'
 
 import {
   ArrowForwardIcon,
 } from '@chakra-ui/icons'
 
+// Services import 
 
 export default function SearchBar() {
   const [inputSearch, setInputSearch] = useState('');
-
-  const getInputsearch = () => {
-    
-  };
-
-  useEffect({
-
-  }, [inputSearch]);
+  console.log(inputSearch);
 
   return (
-    <div>
+    <HStack w="100%" h="100%">
       <Stack direction='row' >
-        <Input placeholder='extra small size' onChange={({target}) => setInputSearch(target.value)}/>
-        <Button rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='outline'>
-          Call us
+        <Input
+          placeholder='extra small size'
+          onChange={({target}) => setInputSearch(target.value)}
+        />
+        <Button
+          rightIcon={<ArrowForwardIcon />}
+          colorScheme='teal'
+          variant='outline'
+          // onClick={'OK'}
+        >
+          Search
         </Button>
       </Stack>
-    </div>
+    </HStack>
   );
 }
