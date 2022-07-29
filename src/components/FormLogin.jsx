@@ -82,7 +82,7 @@ export default function FormLogin() {
               <Button
                 w='100%' h='2.5rem' color='#f0f8ff' bg='#01a101'
                 variant='solid'
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/search")}
                 disabled={!validForms}
               >
                 Sign in
