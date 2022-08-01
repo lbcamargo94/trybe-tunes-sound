@@ -7,25 +7,21 @@ import Logo from './Logo';
 // Chakra ui import
 import {
   Box,
-  Flex,
   Avatar,
-} from '@chakra-ui/react'
+  HStack,
+} from '@chakra-ui/react';
 
 export default function Header() {
   return (
-    <>
-      <Flex
-        alignItems="center"
-      >
-        {/* Header Logo */}
-        <Box>
-          <Logo />
-        </Box>
-        {/* Header Avatar */}
-        <Box>
-          <Avatar name='Test Profile' src='https://bit.ly/tioluwani-kolawole' />
-        </Box>
-      </Flex>
-    </>
+    <HStack w="100%" justifyContent="space-between" px="3rem" py="1rem">
+      {/* Header Logo */}
+      <Box h="3rem">
+        <Logo />
+      </Box>
+      {/* Header Avatar */}
+      <Box h="3rem">
+        <Avatar name="Test Profile" src="https://bit.ly/broken-link" />
+      </Box>
+    </HStack>
   );
 }
